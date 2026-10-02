@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>量化多元复盘助手 · A股量化复盘工作台</title>
+<style>
+:root{--bg:#0d1117;--panel:#161c23;--line:#2b333d;--txt:#d8dee6;--dim:#8b95a3;
+--cy:#39d0c8;--blue:#3d8bff;--gold:#e5a50a;--red:#C1512F}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:"Microsoft YaHei",system-ui;line-height:1.8;overflow-x:hidden}
+.fy-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.fy-bg i{position:absolute;border-radius:50%;filter:blur(100px);opacity:.14;animation:dr 28s ease-in-out infinite alternate}
+.fy-bg i:nth-child(1){width:44vw;height:44vw;left:-10vw;top:-12vw;background:#2f6fed}
+.fy-bg i:nth-child(2){width:36vw;height:36vw;right:-8vw;top:20vh;background:#39d0c8;animation-duration:34s;animation-delay:-9s}
+.fy-bg i:nth-child(3){width:30vw;height:30vw;left:30vw;bottom:-14vw;background:#8a5cf6;animation-duration:40s;animation-delay:-18s}
+@keyframes dr{from{transform:translate(0,0)}to{transform:translate(5vw,4vh) scale(1.12)}}
+.wrap{max-width:1020px;margin:0 auto;padding:0 18px 70px}
+.hero{text-align:center;padding:72px 0 40px}
+.hero h1{font-size:34px;margin:0 0 10px;letter-spacing:2px;
+background:linear-gradient(120deg,#cfe4ff,#5ea8ff 45%,#39e0c8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.tag{font-size:17px;color:#aeb9c8;margin:0 0 6px}
+.hero p.dim{font-size:13.5px;color:#7f8ca0;margin:0}
+.cow{width:110px;margin:0 auto 6px;filter:drop-shadow(0 10px 22px rgba(193,81,47,.35));animation:bob 3.4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.cta{margin-top:22px}
+.btn{display:inline-block;text-decoration:none;border-radius:12px;padding:13px 30px;font-size:15px;font-weight:bold;margin:6px 8px;transition:all .25s}
+.btn.pri{background:linear-gradient(120deg,#2f6fed,#39d0c8);color:#fff;box-shadow:0 10px 30px rgba(47,111,237,.35)}
+.btn.pri:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(47,111,237,.5)}
+.btn.sec{border:1px solid var(--line);color:var(--txt)}
+.btn.sec:hover{border-color:var(--blue);color:#fff;transform:translateY(-3px)}
+h2{font-size:21px;color:#e6ebf2;margin:58px 0 6px;text-align:center}
+.sub{text-align:center;color:#7f8ca0;font-size:13.5px;margin:0 0 24px}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:0 0 8px}
+.f{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 10px;text-align:center}
+.f b{display:block;color:#7cc4ff;font-size:13px;margin-bottom:3px}
+.f span{font-size:12.5px;color:#c6cdd6}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+.fe{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;transition:all .25s}
+.fe:hover{transform:translateY(-4px);border-color:rgba(94,168,255,.5);box-shadow:0 14px 40px rgba(47,111,237,.22)}
+.fe .ic{font-size:26px}
+.fe b{display:block;color:#e6ebf2;font-size:15px;margin:8px 0 4px}
+.fe span{font-size:13px;color:#9aa5b1;line-height:1.75}
+.shot{width:100%;border-radius:14px;border:1px solid var(--line);display:block;margin:14px 0;box-shadow:0 18px 50px rgba(0,0,0,.4)}
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--panel);border-radius:12px;overflow:hidden}
+th{background:#1a2027;color:#8b95a3;padding:11px;text-align:left}
+td{padding:11px;border-top:1px solid #1c232b}
+td.p{color:var(--gold);font-weight:bold;white-space:nowrap}
+.note{background:#161c23;border:1px dashed var(--line);border-radius:12px;padding:14px 18px;color:#9aa5b1;font-size:13px;margin-top:14px}
+.foot{text-align:center;color:#7f8ca0;font-size:12.5px;margin-top:56px;line-height:2}
+@media (max-width:640px){.hero h1{font-size:25px}}
+</style>
+</head>
+<body>
+<div class="fy-bg"><i></i><i></i><i></i></div>
+<div class="wrap">
+
+<div class="hero">
+  <div class="cow">
+    <svg viewBox="0 0 120 120" style="width:100%;height:100%"><path d="M44 16 C40 7 34 3 29 5 C34 8 38 12 40 19 Z" fill="#EAD9AE" stroke="#C9B489" stroke-width="1"/><path d="M76 16 C80 7 86 3 91 5 C86 8 82 12 80 19 Z" fill="#EAD9AE" stroke="#C9B489" stroke-width="1"/><circle cx="16" cy="42" r="12" fill="#C98850"/><circle cx="16" cy="42" r="6.5" fill="#E8934F"/><circle cx="104" cy="42" r="12" fill="#C98850"/><circle cx="104" cy="42" r="6.5" fill="#E8934F"/><ellipse cx="60" cy="103" rx="27" ry="15" fill="#C98850"/><ellipse cx="60" cy="108" rx="14" ry="8" fill="#F4E4CD"/><rect x="36" y="88" width="48" height="7" rx="3.5" fill="#A05A2C"/><circle cx="60" cy="91.5" r="2" fill="#E8C078"/><rect x="52" y="96" width="16" height="12" rx="2.5" fill="#CFF0F7" stroke="#58A8BC" stroke-width="1.5"/><path d="M55 104 L58 100 L61 102 L66 96" stroke="#2E7D8A" stroke-width="1.5" fill="none" stroke-linecap="round"/><rect x="45" y="112" width="11" height="7" rx="3.5" fill="#B5763F"/><rect x="64" y="112" width="11" height="7" rx="3.5" fill="#B5763F"/><path d="M60 20 Q76 11 81 29 Q99 34 90 50 Q99 66 81 71 Q76 89 60 80 Q44 89 39 71 Q21 66 30 50 Q21 34 39 29 Q44 11 60 20 Z" fill="#C98850"/><path d="M52 14 Q60 8 68 14 Q64 11 60 13 Q56 11 52 14 Z" fill="#B5763F"/><g class="blink"><circle cx="46.5" cy="47" r="5" fill="#33261B"/><circle cx="73.5" cy="47" r="5" fill="#33261B"/><circle cx="45" cy="45.2" r="1.7" fill="#fff"/><circle cx="72" cy="45.2" r="1.7" fill="#fff"/><circle cx="48.2" cy="49" r="0.9" fill="#fff" opacity=".8"/><circle cx="75.2" cy="49" r="0.9" fill="#fff" opacity=".8"/></g><ellipse cx="60" cy="74" rx="20" ry="14" fill="#F4E4CD"/><ellipse cx="52" cy="71" rx="2.2" ry="3" fill="#C9986E"/><ellipse cx="68" cy="71" rx="2.2" ry="3" fill="#C9986E"/><path d="M56 82 Q46 78 50 68 Q52 61 58 63 Q61 65 59 72 Q58 79 63 83 Z" fill="#F291A3" stroke="#D9718B" stroke-width="1"/><path d="M56 78 Q54 71 57 66" stroke="#D9718B" stroke-width="0.9" fill="none" stroke-linecap="round"/><ellipse cx="29" cy="60" rx="4.5" ry="2.8" fill="#F2A98E" opacity=".8"/><ellipse cx="91" cy="60" rx="4.5" ry="2.8" fill="#F2A98E" opacity=".8"/><rect x="36" y="39" width="21" height="15" rx="6" fill="rgba(255,255,255,.06)" stroke="#33291F" stroke-width="2.2"/><rect x="63" y="39" width="21" height="15" rx="6" fill="rgba(255,255,255,.06)" stroke="#33291F" stroke-width="2.2"/><path d="M57 45 L63 45" stroke="#33291F" stroke-width="2.2" stroke-linecap="round"/><path d="M36 45 L23 41" stroke="#33291F" stroke-width="2.2" stroke-linecap="round"/><path d="M84 45 L97 41" stroke="#33291F" stroke-width="2.2" stroke-linecap="round"/></svg>
+  </div>
+  <h1>量化多元复盘助手</h1>
+  <p class="tag">盘中实时行情 · 每日复盘报告 · 盘感训练闭环 · 交易纪律审计</p>
+  <p class="dim">跑在你自己电脑上的 A股量化复盘工作台 —— 不是选股软件，是复盘训练系统</p>
+  <div class="cta">
+    <a class="btn pri" href="report.html">📰 看今日真实复盘报告</a>
+    <a class="btn sec" href="demo.html">📱 手机体验</a>
+    <a class="btn sec" href="#features">功能速览 ↓</a>
+  </div>
+</div>
+
+<h2>每日闭环 · 全自动运转</h2>
+<p class="sub">交易日自动运行，微信推送四个节点，你只需要动脑</p>
+<div class="flow">
+  <div class="f"><b>9:00 盘前</b><span>盘前计划<br>盘感答题卡</span></div>
+  <div class="f"><b>9:25 竞价</b><span>竞价快照<br>竞价三只</span></div>
+  <div class="f"><b>14:45 尾盘</b><span>尾盘探测<br>AI预审</span></div>
+  <div class="f"><b>16:40 盘后</b><span>复盘报告<br>纪律审计</span></div>
+  <div class="f"><b>收盘后</b><span>复盘三问<br>AI辩证判卷</span></div>
+</div>
+
+<h2 id="features">核心功能</h2>
+<p class="sub">每一个都经过 5 年数据回测检验，回测为负的战法直接标注、不藏</p>
+<div class="features">
+  <div class="fe"><span class="ic">📊</span><b>每日复盘报告</b><span>涨跌家数、量能结构、涨停梯队、板块强弱、题材生命线、主力意图高分榜，外加 AI 市场复盘。数据自检门控：数据没齐宁可延迟推送，也不给错数字。</span></div>
+  <div class="fe"><span class="ic">📈</span><b>行情 + 当日分时</b><span>全市场 K 线、筹码分布、五维评分；当日分时图（价格/均价/成交量）交易时段 30 秒自动刷新；资金关注榜（龙虎榜×大单×资金流）。</span></div>
+  <div class="fe"><span class="ic">🧠</span><b>盘感训练闭环</b><span>每天 4 道盘感题（最高板晋级/板块持续性/弱转强/量能对策），收盘自动判分。30 天后直觉强弱变成一张可测量的表。</span></div>
+  <div class="fe"><span class="ic">🛡</span><b>执行度审计</b><span>硬止损、禁摊平、日≤1笔新开、浮盈回吐——四条规则每天自动重放你的交割单，违规报告顶部红字点名。</span></div>
+  <div class="fe"><span class="ic">💬</span><b>AI 复盘辩证</b><span>收盘后先写复盘三问，AI 拿当日真实数据逐条挑战你，你答辩、它判卷——自我纠正了也逃不过第二轮追问。</span></div>
+  <div class="fe"><span class="ic">⚔️</span><b>战法库 + 交易系统</b><span>12 种战法 × 5 年回测台账，三套交易系统全过程展示含失败迭代——先验证，再实战。</span></div>
+</div>
+
+<h2>产品实拍</h2>
+<p class="sub">全部为真实运行界面截图</p>
+<img class="shot" src="screenshots/plan.png" alt="每日闭环工作台">
+<img class="shot" src="screenshots/report.png" alt="每日复盘报告">
+<img class="shot" src="screenshots/home.png" alt="行情工作台">
+
+<h2>版本与定价</h2>
+<p class="sub">首次安装 14 天全功能免费试用，无需任何钥匙；数据本地存储，不上传持仓</p>
+<table>
+  <tr><th>版本</th><th>功能</th><th>月 / 季 / 年</th></tr>
+  <tr><td><b style="color:#7cc4ff">基础版</b></td><td>全市场数据 / 复盘报告 / 盘前计划 / 每日三只（教学）/ 回测台</td><td class="p">¥99 / ¥269 / ¥899</td></tr>
+  <tr><td><b style="color:#39d0c8">进阶版</b></td><td>＋ 主力资金评分 / 题材生命线 / 竞价快照+竞价三只 / 尾盘探测</td><td class="p">¥199 / ¥549 / ¥1899</td></tr>
+  <tr><td><b style="color:#e5a50a">旗舰版</b></td><td>＋ AI 深度点评 / 盘后对照 / 情绪分析 / 战法挖掘 / 因子工具</td><td class="p">¥299 / ¥829 / ¥2899</td></tr>
+</table>
+<div class="note">📎 一键安装（自动配置 Python 环境，附保姆级图文说明书）；激活码与电脑绑定，换机重发即可；续费/升级数据不丢失。交易日历守卫：节假日全任务休眠；数据自测每日两班，异常微信告警。</div>
+
+<div class="foot">
+  本工具仅供复盘研究与教学演示，不构成任何投资建议；股市有风险，据此操作后果自负。<br>
+  历史回测表现不代表未来收益 · 公开演示页仅展示脱敏后的每日报告<br>
+  试用与购买请联系卖家获取安装包
+</div>
+</div>
+</body>
+</html>
